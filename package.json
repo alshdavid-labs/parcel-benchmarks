@@ -4,7 +4,8 @@
     "./three-js-10",
     "./three-js-25",
     "./three-js-50",
-    "./three-js-100"
+    "./three-js-100",
+    "./three-js-200"
   ],
   "scripts": {},
   "dependencies": {
