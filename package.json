@@ -1,0 +1,8 @@
+{
+  "private": "true",
+  "workspaces": [
+    "./scripts",
+    "./scripts/assets/three-js-parcel",
+    "./benchmarks/*"
+  ]
+}

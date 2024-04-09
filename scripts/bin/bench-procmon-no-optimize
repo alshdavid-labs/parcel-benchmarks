@@ -1,0 +1,47 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( dirname $( dirname $SCRIPT_DIR ) )"
+NAME="${1}"
+
+rm -rf reports/$1
+mkdir reports/$1
+
+if [ "$NAME" = "" ]; then
+  for BENCH in $ROOT_DIR/benchmarks/*; do
+    cd $BENCH
+    BENCHNAME=$(basename $BENCH)
+
+    echo $BENCHNAME
+
+    rm -rf $ROOT_DIR/$BENCH/dist
+    rm -rf $ROOT_DIR/.parcel-cache
+
+    env \
+      max-old-space-size=4000 \
+      procmon \
+        --report "$ROOT_DIR/reports/$BENCHNAME" \
+        -- node ./node_modules/.bin/parcel build --no-optimize --no-cache
+
+    rm -rf $ROOT_DIR/$BENCH/dist
+    rm -rf $ROOT_DIR/.parcel-cache
+    cp $ROOT_DIR/benchmarks/$BENCH/phases.json $ROOT_DIR/reports/$BENCHNAME
+  done
+else
+  cd $ROOT_DIR/benchmarks/$NAME
+  BENCHNAME=$(basename $BENCH)
+  
+  rm -rf $ROOT_DIR/$BENCH/dist
+  rm -rf $ROOT_DIR/.parcel-cache
+
+  env \
+      max-old-space-size=4000 \
+      procmon \
+        --report "$ROOT_DIR/reports/$BENCHNAME" \
+        -- node ./node_modules/.bin/parcel build --no-optimize --no-cache
+
+  rm -rf $ROOT_DIR/$BENCH/dist
+  rm -rf $ROOT_DIR/.parcel-cache
+  cp $ROOT_DIR/benchmarks/$BENCHNAME/phases.json $ROOT_DIR/reports/$BENCHNAME
+fi
