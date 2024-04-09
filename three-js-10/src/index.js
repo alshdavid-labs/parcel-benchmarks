@@ -1,0 +1,10 @@
+import * as three_js_copy_1 from './copy_1/Three.js'; export { three_js_copy_1 }; window.three_js_copy_1 = three_js_copy_1;
+import * as three_js_copy_2 from './copy_2/Three.js'; export { three_js_copy_2 }; window.three_js_copy_2 = three_js_copy_2;
+import * as three_js_copy_3 from './copy_3/Three.js'; export { three_js_copy_3 }; window.three_js_copy_3 = three_js_copy_3;
+import * as three_js_copy_4 from './copy_4/Three.js'; export { three_js_copy_4 }; window.three_js_copy_4 = three_js_copy_4;
+import * as three_js_copy_5 from './copy_5/Three.js'; export { three_js_copy_5 }; window.three_js_copy_5 = three_js_copy_5;
+import * as three_js_copy_6 from './copy_6/Three.js'; export { three_js_copy_6 }; window.three_js_copy_6 = three_js_copy_6;
+import * as three_js_copy_7 from './copy_7/Three.js'; export { three_js_copy_7 }; window.three_js_copy_7 = three_js_copy_7;
+import * as three_js_copy_8 from './copy_8/Three.js'; export { three_js_copy_8 }; window.three_js_copy_8 = three_js_copy_8;
+import * as three_js_copy_9 from './copy_9/Three.js'; export { three_js_copy_9 }; window.three_js_copy_9 = three_js_copy_9;
+import * as three_js_copy_10 from './copy_10/Three.js'; export { three_js_copy_10 }; window.three_js_copy_10 = three_js_copy_10;

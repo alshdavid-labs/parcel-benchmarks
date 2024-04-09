@@ -1,0 +1,14 @@
+{
+  "private": "true",
+  "workspaces": [
+    "./three-js-10",
+    "./three-js-25",
+    "./three-js-50",
+    "./three-js-100"
+  ],
+  "scripts": {},
+  "dependencies": {
+    "@types/node": "20.x.x",
+    "glob": "^10.3.12"
+  }
+}
