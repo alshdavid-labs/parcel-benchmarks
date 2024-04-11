@@ -6,22 +6,23 @@ import { crawlDir, TargetType } from './crawl.mjs'
 
 const COPIES = process.env.BENCH_COPIES ? parseInt(process.env.BENCH_COPIES, 10) : 10
 const MODE = process.env.BENCH_MODE ? process.env.BENCH_MODE : 'sync'
+const extractPath = Paths.root('scripts', 'assets', 'three-js')
 
 if (!['sync', 'dynamic'].includes(MODE)) {
   console.error('Invalid mode, use "sync" or "dynamic')
   process.exit(1)
 }
 
-if (!fs.existsSync(Paths.root('vendor')) || !fs.existsSync(Paths.root('vendor', 'three-js'))) {
+if (!fs.existsSync(extractPath)) {
   console.log('Setting up three-js')
   
   // git clone --depth 1 --branch r108 https://github.com/mrdoob/three.js.git vendor/three
   // I have just vendored the files into the project
 
-  fs.mkdirSync(Paths.root('vendor', 'three-js'), { recursive: true })
+  fs.mkdirSync(extractPath, { recursive: true })
   child_process.execSync(`tar -xzf ${Paths.root('scripts', 'assets', 'three-js.tar.gz')} -C .`, {
     stdio: 'inherit',
-    cwd: Paths.root('vendor', 'three-js')
+    cwd: extractPath
   })
 }
 
@@ -51,7 +52,7 @@ if (!fs.existsSync(Paths.root('benchmarks', `three-js-${COPIES}-${MODE}`))) {
 
     const copy_dir = Paths.root('benchmarks', `three-js-${COPIES}-${MODE}`, 'src', `copy_${i}`)
     fs.cpSync(
-      Paths.root('vendor', 'three-js', '_src'),
+      Paths.root(extractPath, '_src'),
       copy_dir,
       { recursive: true },
     )

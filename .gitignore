@@ -6,3 +6,4 @@ yarn.lock
 /reports
 /vendor
 /benchmarks
+/scripts/assets/three-js
