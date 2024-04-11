@@ -1,5 +1,6 @@
-run name="":
-  bash ./scripts/bin/bench-procmon {{name}}
+run name="" bundler="parcel":
+  cd benchmarks/{{name}} && \
+  bash scripts/{{bundler}}.bash
 
 generate count="50" mode="sync":
   BENCH_COPIES={{count}} \
