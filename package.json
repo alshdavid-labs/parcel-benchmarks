@@ -4,5 +4,14 @@
     "./scripts",
     "./scripts/assets/three-js-parcel",
     "./benchmarks/*"
-  ]
+  ],
+  "dependencies": {
+    "@alshdavid/mach": "latest",
+    "@rspack/cli": "latest",
+    "@rspack/core": "latest",
+    "esbuild": "latest",
+    "@parcel/plugin": "latest",
+    "@parcel/config-default": "latest",
+    "parcel": "latest"
+  }
 }
